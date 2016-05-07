@@ -5,7 +5,7 @@
  */
 package Interface;
 
-import geradorxml.XML;
+import geradorxml.*;
 import javax.swing.JOptionPane;
 
 /**
@@ -121,12 +121,18 @@ public class J_EcfHomologacao extends javax.swing.JFrame {
 
     private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
 
-        XML.setMarca(marca.getText());
-        XML.setModelo(modelo.getText());
-
         if ("".equals(marca.getText()) || "".equals(modelo.getText())) {
             JOptionPane.showMessageDialog(null, "EXISTE(M) CAMPO(S) EM BRANCO(S)!", "Aviso de erro!!!", JOptionPane.PLAIN_MESSAGE);
         } else {
+
+            String correto;
+
+            correto = CorretorOrtografico.corretor(marca.getText());
+            XML.setMarca(correto);
+            
+            correto = CorretorOrtografico.corretor(modelo.getText());
+            XML.setModelo(correto);
+
             J_EcfHomologacao.setFlag(true);
             dispose();
         }

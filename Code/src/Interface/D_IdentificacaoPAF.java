@@ -5,6 +5,7 @@
  */
 package Interface;
 
+import geradorxml.CorretorOrtografico;
 import geradorxml.XML;
 import javax.swing.JOptionPane;
 
@@ -1038,11 +1039,14 @@ public class D_IdentificacaoPAF extends javax.swing.JFrame {
 
         jLabel16.setText("Número");
 
+        marcaEnv.setText("ELC BRASIL");
         marcaEnv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 marcaEnvActionPerformed(evt);
             }
         });
+
+        modeloEnv.setText("SLML 31");
 
         jLabel17.setText("Perfis de Requisitos");
 
@@ -1208,103 +1212,146 @@ public class D_IdentificacaoPAF extends javax.swing.JFrame {
 
     private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
 
-        nomeComercial = jtNomeComercial.getText();
-
-        XML.setNomeComercial(jtNomeComercial.getText());
-        XML.setVersao(jtVersao.getText());
-        XML.setNomeExe(jtNomeExe.getText());
-        XML.setMdExe(jtMdExe.getText());
-        XML.setNomeLista(jtNomeLista.getText());
-        XML.setMdLista(jtMdLista.getText());
-
-        if (edit1 == true) {
-            XML.setMd1(md1.getText());
-            XML.setNome1(nome1.getText());
-        }
-
-        if (edit2 == true) {
-            XML.setMd2(md2.getText());
-            XML.setNome2(nome2.getText());
-        }
-
-        if (edit3 == true) {
-            XML.setMd3(md3.getText());
-            XML.setNome3(nome3.getText());
-        }
-
-        if (edit4 == true) {
-            XML.setMd4(md4.getText());
-            XML.setNome4(nome4.getText());
-        }
-
-        if (edit5 == true) {
-            XML.setMd5(md5.getText());
-            XML.setNome5(nome5.getText());
-        }
-
-        if (edit6 == true) {
-            XML.setMd6(md6.getText());
-            XML.setNome6(nome6.getText());
-        }
-
-        if (edit7 == true) {
-            XML.setMd7(md7.getText());
-            XML.setNome7(nome7.getText());
-        }
-
-        if (edit8 == true) {
-            XML.setMd8(md8.getText());
-            XML.setNome8(nome8.getText());
-        }
-
-        if (edit9 == true) {
-            XML.setMd9(md9.getText());
-            XML.setNome9(nome9.getText());
-        }
-
-        if (edit10 == true) {
-            XML.setMd10(md10.getText());
-            XML.setNome10(nome10.getText());
-        }
-
-        if (edit11 == true) {
-            XML.setMd11(md11.getText());
-            XML.setNome11(nome11.getText());
-        }
-
-        if (edit12 == true) {
-            XML.setMd12(md12.getText());
-            XML.setNome12(nome12.getText());
-        }
-
-        if (edit13 == true) {
-            XML.setMd13(md13.getText());
-            XML.setNome13(nome13.getText());
-        }
-
-        if (edit14 == true) {
-            XML.setMd14(md14.getText());
-            XML.setNome14(nome14.getText());
-        }
-
-        if (edit15 == true) {
-            XML.setMd15(md15.getText());
-            XML.setNome15(nome15.getText());
-        }
-
-        XML.setNomeRelacao(nomeRelacao.getText());
-        XML.setMdRelacao(mdRelacao.getText());
-        XML.setMarcaEnv(marcaEnv.getText());
-        XML.setModeloEnv(modeloEnv.getText());
-        XML.setNumEnv(numEnv.getText());
-        XML.setPerfil(perfil.getText());
-
         if ("".equals(jtNomeComercial.getText()) || "".equals(jtVersao.getText()) || "".equals(jtNomeExe.getText())
                 || "".equals(jtMdExe.getText()) || "".equals(jtNomeLista.getText()) || "".equals(jtMdLista.getText())
                 || "".equals(nomeRelacao.getText()) || "".equals(mdRelacao.getText()) || "".equals(marcaEnv.getText())
                 || "".equals(modeloEnv.getText()) || "".equals(numEnv.getText()) || "".equals(perfil.getText())) {
             JOptionPane.showMessageDialog(null, "EXISTE(M) CAMPO(S) EM BRANCO(S)!", "Aviso de erro!!!", JOptionPane.PLAIN_MESSAGE);
         } else {
+            nomeComercial = CorretorOrtografico.corretor(jtNomeComercial.getText());
+
+            String correto;
+
+            XML.setNomeComercial(jtNomeComercial.getText());
+            XML.setVersao(jtVersao.getText());
+            XML.setNomeExe(jtNomeExe.getText());
+            XML.setMdExe(jtMdExe.getText());
+            XML.setNomeLista(jtNomeLista.getText());
+            XML.setMdLista(jtMdLista.getText());
+
+            if (edit1 == true) {
+                correto = CorretorOrtografico.corretor(md1.getText());
+                XML.setMd1(correto);
+                correto = CorretorOrtografico.corretor(nome1.getText());
+                XML.setNome1(correto);
+            }
+
+            if (edit2 == true) {
+                correto = CorretorOrtografico.corretor(md2.getText());
+                XML.setMd2(correto);
+                correto = CorretorOrtografico.corretor(nome2.getText());
+                XML.setNome2(correto);
+            }
+
+            if (edit3 == true) {
+                correto = CorretorOrtografico.corretor(md3.getText());
+                XML.setMd3(correto);
+                correto = CorretorOrtografico.corretor(nome3.getText());
+                XML.setNome3(correto);
+            }
+
+            if (edit4 == true) {
+                correto = CorretorOrtografico.corretor(md4.getText());
+                XML.setMd4(correto);
+                correto = CorretorOrtografico.corretor(nome4.getText());
+                XML.setNome4(correto);
+            }
+
+            if (edit5 == true) {
+                correto = CorretorOrtografico.corretor(md5.getText());
+                XML.setMd5(correto);
+                correto = CorretorOrtografico.corretor(nome5.getText());
+                XML.setNome5(correto);
+            }
+
+            if (edit6 == true) {
+                correto = CorretorOrtografico.corretor(md6.getText());
+                XML.setMd6(correto);
+                correto = CorretorOrtografico.corretor(nome6.getText());
+                XML.setNome6(correto);
+            }
+
+            if (edit7 == true) {
+                correto = CorretorOrtografico.corretor(md7.getText());
+                XML.setMd7(correto);
+                correto = CorretorOrtografico.corretor(nome7.getText());
+                XML.setNome7(correto);
+            }
+
+            if (edit8 == true) {
+                correto = CorretorOrtografico.corretor(md8.getText());
+                XML.setMd8(correto);
+                correto = CorretorOrtografico.corretor(nome8.getText());
+                XML.setNome8(correto);
+            }
+
+            if (edit9 == true) {
+                correto = CorretorOrtografico.corretor(md9.getText());
+                XML.setMd9(correto);
+                correto = CorretorOrtografico.corretor(nome9.getText());
+                XML.setNome9(correto);
+            }
+
+            if (edit10 == true) {
+                correto = CorretorOrtografico.corretor(md10.getText());
+                XML.setMd10(correto);
+                correto = CorretorOrtografico.corretor(nome10.getText());
+                XML.setNome10(correto);
+            }
+
+            if (edit11 == true) {
+                correto = CorretorOrtografico.corretor(md11.getText());
+                XML.setMd11(correto);
+                correto = CorretorOrtografico.corretor(nome11.getText());
+                XML.setNome11(correto);
+            }
+
+            if (edit12 == true) {
+                correto = CorretorOrtografico.corretor(md12.getText());
+                XML.setMd12(correto);
+                correto = CorretorOrtografico.corretor(nome12.getText());
+                XML.setNome12(correto);
+            }
+
+            if (edit13 == true) {
+                correto = CorretorOrtografico.corretor(md13.getText());
+                XML.setMd13(correto);
+                correto = CorretorOrtografico.corretor(nome13.getText());
+                XML.setNome13(correto);
+            }
+
+            if (edit14 == true) {
+                correto = CorretorOrtografico.corretor(md14.getText());
+                XML.setMd14(correto);
+                correto = CorretorOrtografico.corretor(nome14.getText());
+                XML.setNome14(correto);
+            }
+
+            if (edit15 == true) {
+                correto = CorretorOrtografico.corretor(md15.getText());
+                XML.setMd15(correto);
+                correto = CorretorOrtografico.corretor(nome15.getText());
+                XML.setNome15(correto);
+            }
+
+            correto = CorretorOrtografico.corretor(nomeRelacao.getText());
+            XML.setNomeRelacao(correto)
+                    ;
+            correto = CorretorOrtografico.corretor(mdRelacao.getText());
+            XML.setMdRelacao(correto);
+            
+            correto = CorretorOrtografico.corretor(marcaEnv.getText());
+            XML.setMarcaEnv(correto);
+            
+            correto = CorretorOrtografico.corretor(modeloEnv.getText());
+            XML.setModeloEnv(correto);
+            
+            correto = CorretorOrtografico.corretor(numEnv.getText());
+            XML.setNumEnv(correto);
+            
+            correto = CorretorOrtografico.corretor(perfil.getText());
+            XML.setPerfil(correto);
+
             D_IdentificacaoPAF.setFlag(true);
             dispose();
         }

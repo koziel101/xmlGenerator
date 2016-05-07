@@ -1,5 +1,6 @@
 package Interface;
 
+import geradorxml.CorretorOrtografico;
 import geradorxml.XML;
 import javax.swing.JOptionPane;
 
@@ -336,24 +337,53 @@ public class C_OTC extends javax.swing.JFrame {
 
     private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
 
-        XML.setRazao(razaoSocial.getText());
-        XML.setCnpj(cnpj.getText());
-        XML.setIe(ie.getText());
-        XML.setRua(rua.getText());
-        XML.setNumero(numero.getText());
-        XML.setComplemento(complemento.getText());
-        XML.setBairro(bairro.getText());
-        XML.setMunicipio(municipio.getText());
-        XML.setUf(uf.getText());
-        XML.setCep(cep.getText());
-        XML.setDataInicio(dataInicio.getText());
-        XML.setDataFim(dataFim.getText());
-        XML.setVersaoAto(VersaoAto.getText());
-        versao = VersaoAto.getText();
-
         if ("".equals(dataInicio.getText()) || "".equals(dataFim.getText())) {
             JOptionPane.showMessageDialog(null, "EXISTE(M) CAMPO(S) EM BRANCO(S)!", "Aviso de erro!!!", JOptionPane.PLAIN_MESSAGE);
         } else {
+
+            versao = CorretorOrtografico.corretor(VersaoAto.getText());
+
+            String correto;
+
+            correto = CorretorOrtografico.corretor(razaoSocial.getText());
+            XML.setRazao(correto);
+
+            correto = CorretorOrtografico.corretor(cnpj.getText());
+            XML.setCnpj(correto);
+
+            correto = CorretorOrtografico.corretor(ie.getText());
+            XML.setIe(correto);
+
+            correto = CorretorOrtografico.corretor(rua.getText());
+            XML.setRua(correto);
+
+            correto = CorretorOrtografico.corretor(numero.getText());
+            XML.setNumero(correto);
+
+            correto = CorretorOrtografico.corretor(complemento.getText());
+            XML.setComplemento(correto);
+
+            correto = CorretorOrtografico.corretor(bairro.getText());
+            XML.setBairro(correto);
+
+            correto = CorretorOrtografico.corretor(municipio.getText());
+            XML.setMunicipio(correto);
+
+            correto = CorretorOrtografico.corretor(uf.getText());
+            XML.setUf(correto);
+
+            correto = CorretorOrtografico.corretor(cep.getText());
+            XML.setCep(correto);
+
+            correto = CorretorOrtografico.corretor(dataInicio.getText());
+            XML.setDataInicio(correto);
+
+            correto = CorretorOrtografico.corretor(dataFim.getText());
+            XML.setDataFim(correto);
+
+            correto = CorretorOrtografico.corretor(VersaoAto.getText());
+            XML.setVersaoAto(correto);
+
             C_OTC.setFlag(true);
             dispose();
         }

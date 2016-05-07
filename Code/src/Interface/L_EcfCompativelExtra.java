@@ -5,6 +5,7 @@
  */
 package Interface;
 
+import geradorxml.CorretorOrtografico;
 import geradorxml.XML;
 import javax.swing.JOptionPane;
 
@@ -131,12 +132,18 @@ public class L_EcfCompativelExtra extends javax.swing.JFrame {
 
     private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
 
-        XML.setMarca(marca.getText());
-        XML.setModelo(modelo.getText());
-
         if ("".equals(marca.getText()) || "".equals(modelo.getText())) {
             JOptionPane.showMessageDialog(null, "EXISTE(M) CAMPO(S) EM BRANCO(S)!", "Aviso de erro!!!", JOptionPane.PLAIN_MESSAGE);
         } else {
+
+            String correto;
+
+            correto = CorretorOrtografico.corretor(marca.getText());
+            XML.setMarca(correto);
+
+            correto = CorretorOrtografico.corretor(modelo.getText());
+            XML.setModelo(correto);
+
             L_EcfCompativelExtra.setFlag(true);
             dispose();
         }

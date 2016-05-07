@@ -5,6 +5,7 @@
  */
 package Interface;
 
+import geradorxml.CorretorOrtografico;
 import geradorxml.XML;
 import java.awt.Color;
 import javax.swing.JOptionPane;
@@ -343,24 +344,6 @@ public class B_EmpresaDesenvolvedora extends javax.swing.JFrame {
     }//GEN-LAST:event_bairroActionPerformed
 
     private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
-        razaoSocialt = razaoSocial.getText();
-        cnpjt = cnpj.getText();
-
-        XML.setRazao(razaoSocial.getText());
-        XML.setCnpj(cnpj.getText());
-        XML.setIe(ie.getText());
-        XML.setRua(rua.getText());
-        XML.setNumero(numero.getText());
-        XML.setComplemento(complemento.getText());
-        XML.setBairro(bairro.getText());
-        XML.setMunicipio(municipio.getText());
-        XML.setUf(uf.getText());
-        XML.setCep(cep.getText());
-        XML.setNome(nome.getText());
-        XML.setCpf(cpf.getText());
-        XML.setTelefone(telefone.getText());
-        XML.setEmail(email.getText());
-        XML.setResponsAcompTestes(responsAcompTestes.getText());
 
         if ("".equals(razaoSocial.getText()) || "".equals(cnpj.getText()) || "".equals(ie.getText())
                 || "".equals(rua.getText()) || "".equals(numero.getText()) || "".equals(complemento.getText())
@@ -369,6 +352,57 @@ public class B_EmpresaDesenvolvedora extends javax.swing.JFrame {
                 || "".equals(telefone.getText()) || "".equals(email.getText()) || "".equals(responsAcompTestes.getText())) {
             JOptionPane.showMessageDialog(null, "EXISTE(M) CAMPO(S) EM BRANCO(S)!", "Aviso de erro!!!", JOptionPane.PLAIN_MESSAGE);
         } else {
+
+            razaoSocialt = CorretorOrtografico.corretor(razaoSocial.getText());
+            cnpjt = CorretorOrtografico.corretor(cnpj.getText());
+
+            String correto;
+
+            correto = CorretorOrtografico.corretor(razaoSocial.getText());
+            XML.setRazao(correto);
+
+            correto = CorretorOrtografico.corretor(cnpj.getText());
+            XML.setCnpj(correto);
+
+            correto = CorretorOrtografico.corretor(ie.getText());
+            XML.setIe(correto);
+
+            correto = CorretorOrtografico.corretor(rua.getText());
+            XML.setRua(correto);
+
+            correto = CorretorOrtografico.corretor(numero.getText());
+            XML.setNumero(correto);
+
+            correto = CorretorOrtografico.corretor(complemento.getText());
+            XML.setComplemento(correto);
+
+            correto = CorretorOrtografico.corretor(bairro.getText());
+            XML.setBairro(correto);
+
+            correto = CorretorOrtografico.corretor(municipio.getText());
+            XML.setMunicipio(correto);
+
+            correto = CorretorOrtografico.corretor(uf.getText());
+            XML.setUf(correto);
+
+            correto = CorretorOrtografico.corretor(cep.getText());
+            XML.setCep(correto);
+
+            correto = CorretorOrtografico.corretor(nome.getText());
+            XML.setNome(correto);
+
+            correto = CorretorOrtografico.corretor(cpf.getText());
+            XML.setCpf(correto);
+
+            correto = CorretorOrtografico.corretor(telefone.getText());
+            XML.setTelefone(correto);
+
+            correto = CorretorOrtografico.corretor(email.getText());
+            XML.setEmail(correto);
+
+            correto = CorretorOrtografico.corretor(responsAcompTestes.getText());
+            XML.setResponsAcompTestes(correto);
+
             B_EmpresaDesenvolvedora.setFlag(true);
             dispose();
         }

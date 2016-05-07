@@ -120,7 +120,6 @@ public class GravarXML {
             gravador.format("<Md5>" + mdLista + "</Md5>%n");
             gravador.format("</ArquivoRelacaoExecutaveis>%n");
             gravador.format("<ArquivosExecutaveis>%n");
-            gravador.format("<ArquivoExecutavel>%n");
         } catch (NoSuchElementException error) {
             JOptionPane.showMessageDialog(null, "Erro ao criar o arquivo!", "Aviso de erro!!!", JOptionPane.PLAIN_MESSAGE);
         }
@@ -129,8 +128,10 @@ public class GravarXML {
     public void addArquivo(String nome, String md5) {
 
         try {
+            gravador.format("<ArquivoExecutavel>%n");
             gravador.format("<Nome>" + nome + "</Nome>%n");
             gravador.format("<Md5>" + md5 + "</Md5>%n");
+            gravador.format("</ArquivoExecutavel>%n");
         } catch (NoSuchElementException error) {
             JOptionPane.showMessageDialog(null, "Erro ao criar o arquivo!", "Aviso de erro!!!", JOptionPane.PLAIN_MESSAGE);
         }
@@ -140,7 +141,6 @@ public class GravarXML {
             String marcaEnv, String modeloEnv, String numEnv, String perfil) {
 
         try {
-            gravador.format("</ArquivoExecutavel>%n");
             gravador.format("</ArquivosExecutaveis>%n");
             gravador.format("<ArquivosOutros>%n");
             gravador.format("<ArquivoOutro>%n");

@@ -241,7 +241,7 @@ public class XML {
         }
 
         arquivo.finalizaE();
-        
+
         // Sistema de gestao ou retaguarda
         arquivo.iniciaSistemGestao();
         if (integracaoPAF == 1 || integracaoPAF == 3) {
@@ -299,14 +299,14 @@ public class XML {
                     integraFlag = true;
                     if (quantSisPed < 0) {
                         integraFlag = false;
-                        JOptionPane.showMessageDialog(null, "Digite um número inteiro acima de 0!", "Aviso de erro!!!", JOptionPane.PLAIN_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Digite um número inteiro igual ou maior que 0!", "Aviso de erro!!!", JOptionPane.PLAIN_MESSAGE);
                     }
                     if (quantSisPed > 10) {
                         integraFlag = false;
                         JOptionPane.showMessageDialog(null, "Excedeu o número permitido de sistemas PED!", "Aviso de erro!!!", JOptionPane.PLAIN_MESSAGE);
                     }
                 } catch (HeadlessException | NumberFormatException e) {
-                    JOptionPane.showMessageDialog(null, "Digite um número inteiro acima de 0!", "Aviso de erro!!!", JOptionPane.PLAIN_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Digite um número inteiro igual ou maior que 0!", "Aviso de erro!!!", JOptionPane.PLAIN_MESSAGE);
                 }
             }
 
@@ -342,14 +342,14 @@ public class XML {
                     integraFlag = true;
                     if (quantSisPedNfe < 0) {
                         integraFlag = false;
-                        JOptionPane.showMessageDialog(null, "Digite um número inteiro acima de 0!", "Aviso de erro!!!", JOptionPane.PLAIN_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Digite um número inteiro igual ou maior que 0!", "Aviso de erro!!!", JOptionPane.PLAIN_MESSAGE);
                     }
                     if (quantSisPedNfe > 10) {
                         integraFlag = false;
                         JOptionPane.showMessageDialog(null, "Excedeu o número permitido de sistemas PedNfe!", "Aviso de erro!!!", JOptionPane.PLAIN_MESSAGE);
                     }
                 } catch (HeadlessException | NumberFormatException e) {
-                    JOptionPane.showMessageDialog(null, "Digite um número inteiro acima de 0!", "Aviso de erro!!!", JOptionPane.PLAIN_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Digite um número inteiro igual ou maior que 0!", "Aviso de erro!!!", JOptionPane.PLAIN_MESSAGE);
                 }
             }
 
@@ -368,7 +368,7 @@ public class XML {
 
             }
         }
-        arquivo.finalizaSistemaPed();
+        arquivo.finalizaSistemaPedNfe();
 //        Gerando dados para a ecf usada na homologacao
         J_EcfHomologacao ecfAnalise = new J_EcfHomologacao();
         while (J_EcfHomologacao.isFlag() == false) {
@@ -527,9 +527,9 @@ public class XML {
                     }
                 }
                 arquivo.ecfCompativel(marca, modelo);
-            } while (L_EcfCompativelExtra.isEcfExtra()== true);
+            } while (L_EcfCompativelExtra.isEcfExtra() == true);
         }
-        
+
         arquivo.finalizaEcfCompativel();
 //        Gerando dados para o roteiro de analise
         M_RoteiroAnalise roteiro = new M_RoteiroAnalise();
@@ -553,7 +553,7 @@ public class XML {
         }
         arquivo.finalizacao(diaAtual, mesAtual, anoAtual, local, gerente, aprovacao);
         arquivo.fecharArquivo();
-        
+
         JOptionPane.showMessageDialog(null, "Processo finalizado, o laudo foi gerado com sucesso", "Processo Concluído", JOptionPane.PLAIN_MESSAGE);
 
     }

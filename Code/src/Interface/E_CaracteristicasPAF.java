@@ -1,6 +1,6 @@
 package Interface;
 
-import geradorxml.XML;
+import geradorxml.*;
 import javax.swing.JOptionPane;
 
 /**
@@ -522,21 +522,30 @@ public class E_CaracteristicasPAF extends javax.swing.JFrame {
 
     private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
 
-        XML.setTipoDesenvolvimento(tipoDesenvolvimento);
-        XML.setTipoFuncionamento(tipoFuncionamento);
-        XML.setGerarArquivo(gerarArquivo);
-        XML.setIntegracaoPAF(integracaoPAF);
-        XML.setInterrupcao(interrupcao);
-        XML.setLinguagem(linguagem.getText());
-        XML.setSo(so.getText());
-        XML.setBd(bd.getText());
-
         if (tipoDesenvolvimento == 0 || tipoFuncionamento == 0 || gerarArquivo == 0 || integracaoPAF == 0 || interrupcao == 0
                 || "".equals(linguagem.getText()) || "".equals(so.getText()) || "".equals(bd.getText()) || (impressao1 == false
                 && impressao2 == false && impressao3 == false && impressao4 == false && impressao5 == false && impressao6 == false
                 && impressao7 == false)) {
             JOptionPane.showMessageDialog(null, "EXISTE(M) CAMPO(S) EM BRANCO(S)!", "Aviso de erro!!!", JOptionPane.PLAIN_MESSAGE);
         } else {
+            
+            XML.setTipoDesenvolvimento(tipoDesenvolvimento);
+            XML.setTipoFuncionamento(tipoFuncionamento);
+            XML.setGerarArquivo(gerarArquivo);
+            XML.setIntegracaoPAF(integracaoPAF);
+            XML.setInterrupcao(interrupcao);
+            
+            String correto;
+            
+            correto = CorretorOrtografico.corretor(linguagem.getText());
+            XML.setLinguagem(correto);
+            
+            correto = CorretorOrtografico.corretor(so.getText());
+            XML.setSo(correto);
+            
+            correto = CorretorOrtografico.corretor(bd.getText());
+            XML.setBd(correto);
+
             E_CaracteristicasPAF.setFlag(true);
             dispose();
         }

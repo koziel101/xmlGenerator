@@ -1381,11 +1381,17 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="marcaEnv">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="ELC BRASIL"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="marcaEnvActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="modeloEnv">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="SLML 31"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="numEnv">
     </Component>

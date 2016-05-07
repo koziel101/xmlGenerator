@@ -5,6 +5,7 @@
  */
 package Interface;
 
+import geradorxml.CorretorOrtografico;
 import geradorxml.XML;
 import javax.swing.JOptionPane;
 
@@ -249,14 +250,23 @@ public class M_RoteiroAnalise extends javax.swing.JFrame {
 
     private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
 
-        XML.setVersaoAto(versaoAto.getText());
-        XML.setVersaoRoteiro(versaoRoteiro.getText());
-        XML.setAno(ano.getText());
-        XML.setDeclaracaoConfomidade(declaracaoConfomidade);
-
-        if ("".equals(versaoAto.getText()) || "".equals(versaoRoteiro.getText()) || (declaracaoConfomidade != 1 &&declaracaoConfomidade != 2)) {
+        if ("".equals(versaoAto.getText()) || "".equals(versaoRoteiro.getText()) || (declaracaoConfomidade != 1 && declaracaoConfomidade != 2)) {
             JOptionPane.showMessageDialog(null, "EXISTE(M) CAMPO(S) EM BRANCO(S)!", "Aviso de erro!!!", JOptionPane.PLAIN_MESSAGE);
         } else {
+
+            String correto;
+
+            correto = CorretorOrtografico.corretor(versaoAto.getText());
+            XML.setVersaoAto(correto);
+            
+            correto = CorretorOrtografico.corretor(versaoRoteiro.getText());
+            XML.setVersaoRoteiro(correto);
+            
+            correto = CorretorOrtografico.corretor(ano.getText());
+            XML.setAno(correto);
+            
+            XML.setDeclaracaoConfomidade(declaracaoConfomidade);
+
             M_RoteiroAnalise.setFlag(true);
             dispose();
         }

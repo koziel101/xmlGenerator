@@ -5,6 +5,7 @@
  */
 package Interface;
 
+import geradorxml.CorretorOrtografico;
 import geradorxml.XML;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -421,24 +422,6 @@ public class N_Final extends javax.swing.JFrame {
 
     private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
 
-        N_Final.setDiaAtual(jTDia.getText());
-        N_Final.setMesAtual(jTMes.getText());
-        N_Final.setAnoAtual(jTAno.getText());
-        N_Final.setLocal(jTlocal.getText());
-        nomeG = nomeGerente.getText();
-        cpfG = cpfGerente.getText();
-
-        nomeA = nomeAprovacao.getText();
-        cpfA = cpfAprovacao.getText();
-
-        XML.setDiaAtual(diaAtual);
-        XML.setMesAtual(mesAtual);
-        XML.setAnoAtual(anoAtual);
-        XML.setLocal(local);
-
-        XML.setGerente(gerente);
-        XML.setAprovacao(aprovacao);
-
         if ("".equals(jTDia.getText()) || "".equals(jTMes.getText()) || "".equals(jTAno.getText()) || "".equals(jTlocal.getText())
                 || (controlOutroGerente == false && controlHiago == false && controlPaulo == false)
                 || (controlOutroGerente == true && ("".equals(nomeGerente.getText()) || "".equals(cpfGerente.getText())))
@@ -446,6 +429,37 @@ public class N_Final extends javax.swing.JFrame {
                 || (controlOutroAprovacao == true && ("".equals(nomeAprovacao.getText()) || "".equals(cpfAprovacao.getText())))) {
             JOptionPane.showMessageDialog(null, "EXISTE(M) CAMPO(S) EM BRANCO(S)!", "Aviso de erro!!!", JOptionPane.PLAIN_MESSAGE);
         } else {
+
+            String correto;
+
+            correto = CorretorOrtografico.corretor(jTDia.getText());
+            N_Final.setDiaAtual(correto);
+            
+            correto = CorretorOrtografico.corretor(jTMes.getText());
+            N_Final.setMesAtual(correto);
+            
+            correto = CorretorOrtografico.corretor(jTAno.getText());
+            N_Final.setAnoAtual(correto);
+            
+            correto = CorretorOrtografico.corretor(jTlocal.getText());
+            N_Final.setLocal(correto);
+            
+            nomeG = CorretorOrtografico.corretor(nomeGerente.getText());
+            cpfG = cpfGerente.getText();
+
+            nomeA = CorretorOrtografico.corretor(nomeAprovacao.getText());
+            cpfA = cpfAprovacao.getText();
+
+            XML.setDiaAtual(diaAtual);
+            XML.setMesAtual(mesAtual);
+            XML.setAnoAtual(anoAtual);
+            
+            correto = CorretorOrtografico.corretor(local);
+            XML.setLocal(correto);
+
+            XML.setGerente(gerente);
+            XML.setAprovacao(aprovacao);
+
             N_Final.setFlag(true);
             dispose();
         }
@@ -505,7 +519,7 @@ public class N_Final extends javax.swing.JFrame {
 
     private void edmundoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edmundoActionPerformed
         controlEdmundo = true;
-        controlMarcelo = false;        
+        controlMarcelo = false;
         controlJuliana = false;
         controlTaciana = false;
         controlOutroAprovacao = false;
@@ -521,7 +535,7 @@ public class N_Final extends javax.swing.JFrame {
 
     private void marceloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_marceloActionPerformed
         controlEdmundo = false;
-        controlMarcelo = true;        
+        controlMarcelo = true;
         controlJuliana = false;
         controlTaciana = false;
         controlOutroAprovacao = false;
@@ -537,7 +551,7 @@ public class N_Final extends javax.swing.JFrame {
 
     private void outroAprovacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_outroAprovacaoActionPerformed
         controlEdmundo = false;
-        controlMarcelo = false;        
+        controlMarcelo = false;
         controlJuliana = false;
         controlTaciana = false;
         if (aprovacao == 5) {
@@ -563,7 +577,7 @@ public class N_Final extends javax.swing.JFrame {
 
     private void julianaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_julianaActionPerformed
         controlEdmundo = false;
-        controlMarcelo = false;        
+        controlMarcelo = false;
         controlJuliana = true;
         controlTaciana = false;
         controlOutroAprovacao = false;
@@ -579,7 +593,7 @@ public class N_Final extends javax.swing.JFrame {
 
     private void tacianaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tacianaActionPerformed
         controlEdmundo = false;
-        controlMarcelo = false;        
+        controlMarcelo = false;
         controlJuliana = false;
         controlTaciana = true;
         controlOutroAprovacao = false;

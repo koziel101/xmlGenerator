@@ -5,7 +5,7 @@
  */
 package Interface;
 
-import geradorxml.XML;
+import geradorxml.*;
 import javax.swing.JOptionPane;
 
 /**
@@ -224,18 +224,32 @@ public class G_SistemaGestao extends javax.swing.JFrame {
 
     private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
 
-        XML.setRetCnpj(retCnpj.getText());
-        XML.setRetMd(retMd.getText());
-        XML.setRetNome(retNome.getText());
-        XML.setRetRazao(retRazao.getText());
-        XML.setRetReqExe(retReqExe.getText());
-        XML.setRetNomeExe(retNomeExe.getText());
-
         if ("".equals(retCnpj.getText()) || "".equals(retNome.getText()) || "".equals(retMd.getText())
                 || "".equals(retNome.getText()) || "".equals(retRazao.getText()) || "".equals(retReqExe.getText())
                 || "".equals(retNomeExe.getText())) {
             JOptionPane.showMessageDialog(null, "EXISTE(M) CAMPO(S) EM BRANCO(S)!", "Aviso de erro!!!", JOptionPane.PLAIN_MESSAGE);
         } else {
+
+            String correto;
+            
+            correto = CorretorOrtografico.corretor(retCnpj.getText());
+            XML.setRetCnpj(correto);
+            
+            correto = CorretorOrtografico.corretor(retMd.getText());
+            XML.setRetMd(correto);
+            
+            correto = CorretorOrtografico.corretor(retNome.getText());
+            XML.setRetNome(correto);
+            
+            correto = CorretorOrtografico.corretor(retRazao.getText());
+            XML.setRetRazao(correto);
+            
+            correto = CorretorOrtografico.corretor(retReqExe.getText());
+            XML.setRetReqExe(correto);
+            
+            correto = CorretorOrtografico.corretor(retNomeExe.getText());
+            XML.setRetNomeExe(correto);
+            
             G_SistemaGestao.setFlag(true);
             dispose();
         }

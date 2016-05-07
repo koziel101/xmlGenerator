@@ -5,7 +5,7 @@
  */
 package Interface;
 
-import geradorxml.XML;
+import geradorxml.*;
 import javax.swing.JOptionPane;
 
 /**
@@ -231,17 +231,31 @@ public class I_SistemaPedNfe extends javax.swing.JFrame {
 
     private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
 
-        XML.setPedNfeNome(pedNfeNome.getText());
-        XML.setPedNfeRazao(pedNfeRazao.getText());
-        XML.setPedNfeCnpj(pedNfeCnpj.getText());
-        XML.setPedNfeNomeArquivo(pedNfeNomeExe.getText());
-        XML.setPedNfeMd5(pedNfeMd.getText());
-        XML.setPedNfeFuncao(pedNfeFuncao.getText());
-
         if ("".equals(pedNfeNome.getText()) || "".equals(pedNfeRazao.getText()) || "".equals(pedNfeCnpj.getText())
                 || "".equals(pedNfeNomeExe.getText()) || "".equals(pedNfeMd.getText()) || "".equals(pedNfeFuncao.getText())) {
             JOptionPane.showMessageDialog(null, "EXISTE(M) CAMPO(S) EM BRANCO(S)!", "Aviso de erro!!!", JOptionPane.PLAIN_MESSAGE);
         } else {
+
+            String correto;
+
+            correto = CorretorOrtografico.corretor(pedNfeNome.getText());
+            XML.setPedNfeNome(correto);
+            
+            correto = CorretorOrtografico.corretor(pedNfeRazao.getText());
+            XML.setPedNfeRazao(correto);
+            
+            correto = CorretorOrtografico.corretor(pedNfeCnpj.getText());
+            XML.setPedNfeCnpj(correto);
+            
+            correto = CorretorOrtografico.corretor(pedNfeNomeExe.getText());
+            XML.setPedNfeNomeArquivo(correto);
+            
+            correto = CorretorOrtografico.corretor(pedNfeMd.getText());
+            XML.setPedNfeMd5(correto);
+            
+            correto = CorretorOrtografico.corretor(pedNfeFuncao.getText());
+            XML.setPedNfeFuncao(correto);
+
             I_SistemaPedNfe.setFlag(true);
             dispose();
         }
