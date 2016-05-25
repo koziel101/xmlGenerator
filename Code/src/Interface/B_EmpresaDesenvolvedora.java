@@ -354,6 +354,9 @@ public class B_EmpresaDesenvolvedora extends javax.swing.JFrame {
         } else {
 
             razaoSocialt = CorretorOrtografico.corretor(razaoSocial.getText());
+            
+            
+            
             cnpjt = CorretorOrtografico.corretor(cnpj.getText());
 
             String correto;

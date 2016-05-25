@@ -487,7 +487,6 @@ public class GravarXML {
     public void fecharArquivo() {
         if (gravador != null) {
             gravador.close();
-//            gravador.format("%n");
         }
     }
 }
