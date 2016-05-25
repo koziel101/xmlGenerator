@@ -3,8 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/hiago/Dropbox/ProjetoXML/GeradorXML%20-%20v1.2.0/src/geradorxml/XML.java</file>
-            <file>file:/C:/Users/hiago/Dropbox/ProjetoXML/GeradorXML%20-%20v1.2.0/src/Interface/B_EmpresaDesenvolvedora.java</file>
+            <file>file:/C:/Users/Paf/xmlGenerator/Code/src/geradorxml/XML.java</file>
+            <file>file:/C:/Users/Paf/xmlGenerator/Code/src/geradorxml/GeradorXML.java</file>
+            <file>file:/C:/Users/Paf/xmlGenerator/Code/src/geradorxml/CorretorOrtografico.java</file>
+            <file>file:/C:/Users/Paf/xmlGenerator/Code/src/Interface/C_OTC.java</file>
+            <file>file:/C:/Users/Paf/xmlGenerator/Code/src/Gravador/GravarXML.java</file>
+            <file>file:/C:/Users/Paf/xmlGenerator/Code/src/Interface/B_EmpresaDesenvolvedora.java</file>
+            <file>file:/C:/Users/Paf/xmlGenerator/Code/src/Interface/D_IdentificacaoPAF.java</file>
+            <file>file:/C:/Users/Paf/xmlGenerator/Code/src/Interface/A_JanelaInicial.java</file>
         </group>
     </open-files>
 </project-private>
