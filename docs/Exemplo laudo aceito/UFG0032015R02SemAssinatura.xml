@@ -10,14 +10,14 @@
             <Endereco>
                 <Logradouro>Rua Joaquim Fonseca</Logradouro>
                 <Numero>377</Numero>
-                <Complemento></Complemento>
+                <Complemento/>
                 <Bairro>BAIRRO ODILIA</Bairro>
                 <Municipio>RIO VERDE</Municipio>
                 <Uf>GO</Uf>
                 <Cep>75908730</Cep>
             </Endereco>
             <Contato>
-                <Nome>FRANCISCO ROGRIGUES FILHO</Nome>
+                <Nome>FRANCISCO ROGRIGUES FILHO </Nome>
                 <Cpf>42748135334</Cpf>
                 <Telefone>6232671500</Telefone>
                 <Email>contratos@siagri.com.br</Email>
@@ -97,8 +97,8 @@
             <GerenciadorBancoDados>Oracle</GerenciadorBancoDados>
             <TipoDesenvolvimento>Comercializável</TipoDesenvolvimento>
             <TipoFuncionamento>Parametrizável</TipoFuncionamento>
-            <MeioGeracaoArquivoSintegraEfd>
-                <Modo>Pelo PAF-ECF</Modo>
+            <MeioGeracaoArquivoSintegraEfd> 
+                <Modo>Pelo PAF-ECF</Modo> 
             </MeioGeracaoArquivoSintegraEfd>
             <IntegracaoPaf>Com sistema de gestão ou retaguarda</IntegracaoPaf>
             <FormaImpressao>
@@ -246,12 +246,12 @@
         <ExecucaoTestes>
             <Nome>Paulo de Oliveira Neto</Nome>
             <Cargo>Gerente de Testes</Cargo>
-            <Cpf>70020987137</Cpf>
+            <Cpf>66666666666</Cpf>
         </ExecucaoTestes>
         <AprovacaoRelatorio>
             <Nome>Juliana Pereira de Souza Zinader</Nome>
             <Cargo>Coordenador de Testes</Cargo>
-            <Cpf>31239711808</Cpf>
+            <Cpf>77777777777</Cpf>
         </AprovacaoRelatorio>
     </Mensagem>
 </Laudo>
